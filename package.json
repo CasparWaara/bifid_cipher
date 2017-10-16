@@ -1,0 +1,23 @@
+{
+  "name": "bifid_cipher",
+  "version": "1.0.0",
+  "description": "Bifid Cipher - Challenge 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CasparWaara/bifid_cipher.git"
+  },
+  "keywords": [
+    "bifid",
+    "cipher"
+  ],
+  "author": "Kari Pönkkö",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CasparWaara/bifid_cipher/issues"
+  },
+  "homepage": "https://github.com/CasparWaara/bifid_cipher#readme"
+}
