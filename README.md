@@ -21,4 +21,4 @@ Usage: node index.js [options]
  * -bdec <word> : Benchmark average decryption in 100 runs
 
 To run tests:
-* npm run test
+* npm test
