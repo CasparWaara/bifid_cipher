@@ -1,4 +1,4 @@
-'use strict';
+// example usage of library
 const app = require('./app');
 const argv = process.argv.slice(2);
 

@@ -3,7 +3,8 @@ const indexes = '12345';
 
 
 function bifidEncrypt(word) {
-    if (word === undefined || word === '') {
+    if (checkWord(word)) {
+        // should have some explanatory error messages
         return '';
     }
     let row = '';
@@ -34,6 +35,10 @@ function bifidEncrypt(word) {
 }
 
 function bifidDecrypt(word) {
+    if (checkWord(word)) {
+        // should have some explanatory error messages
+        return '';
+    }
     let crow = '';
     let row = '';
     let col = '';
@@ -70,10 +75,12 @@ function executionTime(func, word) {
         start = process.hrtime();
         bifidEncrypt(word);
         end = process.hrtime(start);
-    } else {
+    } else if (func === '-tdec') {
         start = process.hrtime();
         bifidDecrypt(word);
         end = process.hrtime(start);
+    } else {
+        return '';
     }
     return end[1] / 1000000;
 }
@@ -102,6 +109,17 @@ function benchmark(func, word) {
     return btimes.reduce(function (sum, a) {
         return sum + a
     }, 0) / (btimes.length || 1);
+}
+
+function checkWord(word) {
+    // Basic checks of the input
+    if (word === undefined || word === '') {
+        return false;
+    }
+    if (!(/[^JDIECHÄAURVBSKLTOMGPFÖNRY]/i.test(word))) {
+        return false;
+    }
+    return true;
 }
 
 module.exports = {

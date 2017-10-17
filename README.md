@@ -4,12 +4,14 @@ Made for RD Velho SW Developer Challenge 2018.
 
 Bifid cipher is a cipher which combines the Polybius square with transposition, and uses fractionation to achieve diffusion. 
 
-Requirements: 
+Requirements to run: 
  * [Node.js](https://nodejs.org/en/)
 
 Installation
  * git clone https://github.com/CasparWaara/bifid_cipher
  * to run tests -> npm install
+
+Example app included:
 
 Usage: node index.js [options]
 
