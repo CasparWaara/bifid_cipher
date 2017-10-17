@@ -3,7 +3,8 @@ const indexes = '12345';
 
 
 function bifidEncrypt(word) {
-    if (checkWord(word)) {
+
+    if (!okWord(word)) {
         // should have some explanatory error messages
         return '';
     }
@@ -35,7 +36,7 @@ function bifidEncrypt(word) {
 }
 
 function bifidDecrypt(word) {
-    if (checkWord(word)) {
+    if (!okWord(word)) {
         // should have some explanatory error messages
         return '';
     }
@@ -111,12 +112,12 @@ function benchmark(func, word) {
     }, 0) / (btimes.length || 1);
 }
 
-function checkWord(word) {
+function okWord(word) {
     // Basic checks of the input
     if (word === undefined || word === '') {
         return false;
     }
-    if (!(/[^JDIECHÄAURVBSKLTOMGPFÖNRY]/i.test(word))) {
+    if ((/[^JDIECHÄAURVBSKLTOMGPFÖNRY]/i.test(word))) {
         return false;
     }
     return true;

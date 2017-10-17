@@ -1,10 +1,12 @@
+// just some basic tests...
+
 let app = require('../app');
 
 describe('bifid_cipher test suite', () => {
 
     describe('Encrypting', () => {
-        it('should exit gracefully if no input', () => {
-            let result = app.bifidEncrypt('');
+        it('should exit gracefully if no parameter is given', () => {
+            let result = app.bifidEncrypt();
             expect(result).toBe('');
         });
 
@@ -25,8 +27,8 @@ describe('bifid_cipher test suite', () => {
     });
 
     describe('Decrypting', () => {
-        it('should exit gracefully if no input', () => {
-            let result = app.bifidDecrypt('');
+        it('should exit gracefully if no parameter is given', () => {
+            let result = app.bifidDecrypt();
             expect(result).toBe('');
         });
 
@@ -43,6 +45,18 @@ describe('bifid_cipher test suite', () => {
         it('should return valid response', () => {
             let result = app.bifidDecrypt('HVBPHPD');
             expect(result).toBe('RDVELHO');
+        });
+    });
+
+    describe('executionTime tests', () => {
+        it('should exit gracefully if no parameter is given', () => {
+            let result = app.executionTime();
+            expect(result).toBe('');
+        });
+
+        it('should exit gracefully if just one parameter is given', () => {
+            let result = app.executionTime('-tenc');
+            expect(isNaN(result)).toBe(false);
         });
     });
 
