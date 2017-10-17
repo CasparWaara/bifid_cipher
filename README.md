@@ -1,6 +1,6 @@
 # (bifid_cipher) Bifid Cipher
 
-Made for RD Velho challenge.
+Made for RD Velho SW Developer Challenge 2018.
 
 Bifid cipher is a cipher which combines the Polybius square with transposition, and uses fractionation to achieve diffusion. 
 
