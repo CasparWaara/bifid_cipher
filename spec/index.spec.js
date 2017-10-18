@@ -94,12 +94,12 @@ describe('bifid_cipher test suite', () => {
         });
 
         it('should return valid response (enc)', () => {
-            let result = app.benchmark('-tenc', 'rdvelho');
+            let result = app.benchmark('-benc', 'rdvelho');
             expect(isNaN(result)).toBe(false);
         });
 
         it('should return valid response (dec)', () => {
-            let result = app.benchmark('-tdec', 'rdvelho');
+            let result = app.benchmark('-bdec', 'rdvelho');
             expect(isNaN(result)).toBe(false);
         });
 

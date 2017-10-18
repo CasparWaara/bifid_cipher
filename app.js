@@ -3,7 +3,6 @@ const indexes = '12345';
 
 
 function bifidEncrypt(word) {
-
     if (!okWord(word)) {
         // should have some explanatory error messages
         return '';
