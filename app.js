@@ -1,4 +1,4 @@
-const table = 'JDIECHÄAURVBSKLTOMGPFÖNRY';
+const table = 'JDIECHÄAURVBSKLTOMGPFÖNÅY';
 const indexes = '12345';
 
 
@@ -67,11 +67,13 @@ function bifidDecrypt(word) {
     return decrypted;
 }
 
-// single run bencmark function
+// single run benchmark function
 function executionTime(func, word) {
     let start;
     let end;
-
+    // we don't check if the word parameter is valid.
+    // Someone might want to benchmark invalid function calls
+    // to en/decrypt. 
     if (func === '-tenc') {
         start = process.hrtime();
         bifidEncrypt(word);
@@ -83,9 +85,13 @@ function executionTime(func, word) {
     } else {
         return '';
     }
+    console.log('Executed in : ' + end[1] / 1000000 + 'ms');
     return end[1] / 1000000;
 }
 
+// benchmark doesn't use the executionTime function as the specs
+// stated that executionTime function should output the time to console...
+// in benchmark, we don't want that as it slows down the en/decrypt function
 function benchmark(func, word) {
     let start;
     let end;
@@ -98,13 +104,15 @@ function benchmark(func, word) {
             end = process.hrtime(start);
             btimes.push(end[1] / 1000000);
         }
-    } else {
+    } else if (func === '-bdec') {
         for (let i = 0; i < 100; i++) {
             start = process.hrtime();
             bifidDecrypt(word);
             end = process.hrtime(start);
             btimes.push(end[1] / 1000000);
         }
+    } else {
+        return '';
     }
 
     return btimes.reduce(function (sum, a) {
@@ -112,12 +120,12 @@ function benchmark(func, word) {
     }, 0) / (btimes.length || 1);
 }
 
+// Basic checks of the input
 function okWord(word) {
-    // Basic checks of the input
     if (word === undefined || word === '') {
         return false;
     }
-    if ((/[^JDIECHÄAURVBSKLTOMGPFÖNRY]/i.test(word))) {
+    if ((/[^JDIECHÄAURVBSKLTOMGPFÖNÅY]/i.test(word))) {
         return false;
     }
     return true;
