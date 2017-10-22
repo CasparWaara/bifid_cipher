@@ -84,8 +84,8 @@ function executionTime(func, word) {
     } else {
         return '';
     }
-    console.log('Executed in : ' + end[1] / 1000000 + 'ms');
-    return end[1] / 1000000;
+    console.log('Executed in : ', (end[0] * 1000) + end[1] / 1000000 + 'ms');
+    return (end[0] * 1000) + end[1] / 1000000;
 }
 
 // benchmark doesn't use the executionTime function as the specs
@@ -101,14 +101,14 @@ function benchmark(func, word) {
             start = process.hrtime();
             bifidEncrypt(word);
             end = process.hrtime(start);
-            btimes.push(end[1] / 1000000);
+            btimes.push((end[0] * 1000) + end[1] / 1000000);
         }
     } else if (func === '-bdec') {
         for (let i = 0; i < 100; i++) {
             start = process.hrtime();
             bifidDecrypt(word);
             end = process.hrtime(start);
-            btimes.push(end[1] / 1000000);
+            btimes.push((end[0] * 1000) + end[1] / 1000000);
         }
     } else {
         return '';
